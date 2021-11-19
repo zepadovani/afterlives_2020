@@ -1,0 +1,13 @@
+ev 24;
+1000 bufgrain 0 dbamp 0 200;
+1200 bufgrain 0 switch 0;
+100 toGEMcpu /tile/all/alpha 0 200;
+pvocs 0 reset;
+pvocs 1 reset;
+pvocs 2 reset;
+pvocs 3 reset;
+pvocs 4 reset;
+pvocs 5 reset;
+pvocs 6 reset;
+pvocs 7 reset;
+bufgrain 0 reset;

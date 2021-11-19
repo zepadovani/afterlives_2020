@@ -1,0 +1,3 @@
+ev 11;
+/tile/all/time 0 10000;
+10000 /tile/all/time 0 0;

@@ -1,0 +1,3 @@
+ev 3 start playing _ tiles around freeze;
+toGEMcpu /tile/12/scale 1 1000;
+1500 toGEMcpu /tile/list/alpha 1 0 1000 400 1000 6 7 8 11 13 16 17 18;

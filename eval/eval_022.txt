@@ -1,0 +1,5 @@
+ev22;
+ev22_bufgrain bang;
+toGEMcpu /tile/list/alpha 1 100 9000 100 500 0 1 2 3 4 5 6 7 8 9 10 11 12 14 15 16 17 18 19 20 21 22 23 24;
+toGEMcpu /tile/12/time 0 4000;
+toGEMcpu /tile/list/time -60000 20000 2000 60000 0 1 2 3 4 5 6 7 8 9 10 11 13 14 15 16 17 18 19 20 21 22 23 24;

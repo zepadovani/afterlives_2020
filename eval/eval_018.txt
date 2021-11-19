@@ -1,0 +1,6 @@
+ev 18;
+toGEMcpu /tile/13/alpha 1 1000;
+livespatchanger switch 0;
+500 fluteliveazi 0 800;
+500 fluteliverho 1 800;
+500 bufgrain 0 dbamp 0 18000;

@@ -1,0 +1,224 @@
+#N canvas 168 37 1272 718 12;
+#X declare -lib pd_spectral_toolkit;
+#X declare -lib ceammc;
+#X obj 45 199 readsf~;
+#X msg 116 189 0;
+#N canvas 351 69 1055 710 recin 0;
+#X obj 741 480 array define \$0_insound;
+#X obj 741 450 array size \$0_insound;
+#X obj 741 89 inlet;
+#X obj 741 113 * 60;
+#X obj 773 160 samplerate~;
+#X obj 741 161 *;
+#X floatatom 741 188 12 0 0 0 - - -;
+#X obj 550 209 line~;
+#X msg 550 153 0 \, 3.1752e+07 720000;
+#X obj 773 242 pack 0 0;
+#X obj 741 137 t f b f;
+#X obj 798 137 * 1000;
+#X text 841 243 line parameters;
+#X msg 773 266 set 0 \, addcomma \, add2 \$1 \$2;
+#X obj 741 217 t f f f;
+#X msg 797 217;
+#X obj 600 209 line;
+#X obj 550 177 t a a;
+#X obj 241 216 tabwrite~ \$0_insound;
+#X obj 161 22 inlet~;
+#X obj 225 23 inlet;
+#X msg 214 99 bang;
+#X msg 265 142 stop;
+#X msg 273 339 \; \$1_insound const 0;
+#X obj 274 313 f \$0;
+#X obj 270 284 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 330 82 t b b;
+#X obj 654 393 outlet~;
+#X obj 330 143 del 50;
+#X obj 527 322 outlet;
+#X msg 503 106 0;
+#X obj 225 47 sel 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 10 0;
+#X connect 4 0 5 1;
+#X connect 5 0 6 0;
+#X connect 6 0 14 0;
+#X connect 7 0 27 0;
+#X connect 8 0 17 0;
+#X connect 9 0 13 0;
+#X connect 10 0 5 0;
+#X connect 10 1 4 0;
+#X connect 10 2 11 0;
+#X connect 11 0 9 1;
+#X connect 13 0 8 0;
+#X connect 14 0 1 0;
+#X connect 14 1 9 0;
+#X connect 16 0 29 0;
+#X connect 17 0 7 0;
+#X connect 17 1 16 0;
+#X connect 19 0 18 0;
+#X connect 20 0 31 0;
+#X connect 21 0 18 0;
+#X connect 21 0 8 0;
+#X connect 22 0 18 0;
+#X connect 24 0 23 0;
+#X connect 25 0 24 0;
+#X connect 26 0 28 0;
+#X connect 26 1 22 0;
+#X connect 28 0 25 0;
+#X connect 28 0 30 0;
+#X connect 30 0 17 0;
+#X connect 31 0 21 0;
+#X connect 31 1 26 0;
+#X coords 0 0 12 1 0 0 0;
+#X restore 182 253 pd recin;
+#X msg 235 228 12;
+#X text 268 228 minutes;
+#X obj 187 84 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 37 563 output~;
+#X text 249 255 out ramp_values_(current sample);
+#X obj 247 66 tabwrite~;
+#X obj 522 27 declare -lib pd_spectral_toolkit;
+#X floatatom 197 289 12 0 0 0 - - -;
+#X floatatom 221 365 9 0 0 0 ms - -;
+#X floatatom 326 365 5 0 0 0 pitch - -;
+#X obj 150 365 tgl 17 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X floatatom 170 365 4 0 0 0 - - -;
+#X obj 557 369 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 390 365 5 0 0 0 azi - -;
+#X floatatom 453 365 5 0 0 0 rho - -;
+#X floatatom 513 365 5 0 0 0 dB - -;
+#X obj 308 278 send~ syncrec;
+#N canvas 0 43 1399 794 binauraldecoder 0;
+#X obj 400 100 cnv 15 60 150 empty empty empty 20 12 0 14 -220981 -66577
+0;
+#X obj 97 431 catch~ \$0o_1;
+#X obj 107 453 catch~ \$0o_2;
+#X obj 117 475 catch~ \$0o_3;
+#X obj 127 497 catch~ \$0o_4;
+#X obj 137 519 catch~ \$0o_5;
+#X obj 147 540 catch~ \$0o_6;
+#X obj 428 103 ui.meter~ @size 15 120 @receive "(null)" @send "(null)"
+@pinned 0 @background_color 0.93 0.93 0.93 1 @border_color 0.6 0.6
+0.6 1 @label_color 0 0 0 1 @cold_color 0 0.6 0 1 @tepid_color 0.6 0.73
+0 1 @warm_color 0.85 0.85 0 1 @hot_color 1 0.6 0 1 @over_color 1 0
+0 1 @fontname "Helvetica" @fontweight "normal" @fontslant "roman" @fontsize
+11 @label "(null)" @label_inner 0 @label_side "top" @label_align "left"
+@label_valign "top" @label_margins 0 0 @interval 50;
+#X text 427 225 R;
+#X obj 409 103 ui.meter~ @size 15 120 @receive "(null)" @send "(null)"
+@pinned 0 @background_color 0.93 0.93 0.93 1 @border_color 0.6 0.6
+0.6 1 @label_color 0 0 0 1 @cold_color 0 0.6 0 1 @tepid_color 0.6 0.73
+0 1 @warm_color 0.85 0.85 0 1 @hot_color 1 0.6 0 1 @over_color 1 0
+0 1 @fontname "Helvetica" @fontweight "normal" @fontslant "roman" @fontsize
+11 @label "(null)" @label_inner 0 @label_side "top" @label_align "left"
+@label_valign "top" @label_margins 0 0 @interval 50;
+#X text 408 225 L;
+#X obj 87 409 catch~ \$0o_0;
+#X obj 236 410 catch~ bg_0;
+#X obj 246 433 catch~ bg_1;
+#X obj 256 455 catch~ bg_2;
+#X obj 265 477 catch~ bg_3;
+#X obj 276 500 catch~ bg_4;
+#X obj 286 522 catch~ bg_5;
+#X obj 296 542 catch~ bg_6;
+#X obj 309 646 clip~ -0.999 0.999;
+#X obj 309 670 hip~ 5;
+#X obj 169 646 clip~ -0.999 0.999;
+#X obj 169 670 hip~ 5;
+#X obj 376 410 catch~ pv_0;
+#X obj 386 433 catch~ pv_1;
+#X obj 396 455 catch~ pv_2;
+#X obj 405 477 catch~ pv_3;
+#X obj 416 500 catch~ pv_4;
+#X obj 426 522 catch~ pv_5;
+#X obj 436 542 catch~ pv_6;
+#X text 695 237 gravador!;
+#X obj 461 105 autofader flinet outamp;
+#X obj 149 575 hoa.2d.decoder~ 3 binaural 2 @crop 256, f 28;
+#X obj 165 709 xdac~ 1:2, f 28;
+#X connect 1 0 32 1;
+#X connect 2 0 32 2;
+#X connect 3 0 32 3;
+#X connect 4 0 32 4;
+#X connect 5 0 32 5;
+#X connect 6 0 32 6;
+#X connect 11 0 32 0;
+#X connect 12 0 32 0;
+#X connect 13 0 32 1;
+#X connect 14 0 32 2;
+#X connect 15 0 32 3;
+#X connect 16 0 32 4;
+#X connect 17 0 32 5;
+#X connect 18 0 32 6;
+#X connect 19 0 20 0;
+#X connect 20 0 33 1;
+#X connect 21 0 22 0;
+#X connect 22 0 33 0;
+#X connect 23 0 32 0;
+#X connect 24 0 32 1;
+#X connect 25 0 32 2;
+#X connect 26 0 32 3;
+#X connect 27 0 32 4;
+#X connect 28 0 32 5;
+#X connect 29 0 32 6;
+#X connect 32 0 9 0;
+#X connect 32 0 21 0;
+#X connect 32 1 7 0;
+#X connect 32 1 19 0;
+#X coords 0 -1 1 1 130 150 2 400 100;
+#X restore 278 438 pd binauraldecoder;
+#X msg 45 165 open ../sounds/density.wav \, 1;
+#X msg 644 415 \; pvocs 0 azi -0.5 1 \;;
+#X obj 112 113 sel 1;
+#X msg 621 268 \; pvocs 0 switch \$1 \;;
+#X obj 607 234 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 802 21 declare -lib ceammc;
+#X obj 279 596 ui.dsp~ @size 51 51 @receive "(null)" @send "(null)"
+@pinned 0 @background_color 0.93 0.93 0.93 1 @border_color 0.6 0.6
+0.6 1 @label_color 0 0 0 1 @active_color 0 0.75 1 1 @fontname "Helvetica"
+@fontweight "normal" @fontslant "roman" @fontsize 11 @label "(null)"
+@label_inner 0 @label_side "top" @label_align "left" @label_valign
+"top" @label_margins 0 0;
+#X obj 142 334 pv_stretch_shifter.3o.debug~ 0 \$0 \$0_insound pv pvocs
+;
+#X obj 282 189 loadbang;
+#X msg 644 535 \; pvocs 0 pitch -12 0 \;;
+#X msg 644 595 \; pvocs 0 pitch 7 0 \;;
+#X msg 855 495 \; pvocs 0 time 0 12000 \;;
+#X msg 865 445 \; pvocs 0 time 0 0 \;;
+#X msg 1025 485 \; pvocs 0 time 0 0 \;;
+#X msg 812 393 \; pvocs 0 azi 0 1 \;;
+#X msg 826 540 \; pvocs 0 pitch 3 500 \;;
+#X msg 1026 580 \; pvocs 0 pitch 0 0 \;;
+#X msg 897 226 \; pvocs 0 pitch 3 500 \;;
+#X msg 900 308 \; pvocs 0 pitch 5 500 \;;
+#X msg 1026 530 \; pvocs 0 pitch -12 0 \;;
+#X msg 644 635 \; pvocs 0 pitch 24 100 \;;
+#X msg 665 349 \; pvocs 0 dbamp 93 1 \;;
+#X msg 644 455 \; pvocs 0 rho 1.2 1 \;;
+#X msg 643 497 \; pvocs 0 time -26000 2000 \;;
+#X connect 0 0 2 0;
+#X connect 0 0 6 0;
+#X connect 1 0 0 0;
+#X connect 2 0 10 0;
+#X connect 2 1 19 0;
+#X connect 3 0 2 2;
+#X connect 5 0 2 1;
+#X connect 5 0 23 0;
+#X connect 21 0 0 0;
+#X connect 23 0 21 0;
+#X connect 23 1 1 0;
+#X connect 25 0 24 0;
+#X connect 28 0 13 0;
+#X connect 28 1 14 0;
+#X connect 28 2 11 0;
+#X connect 28 3 12 0;
+#X connect 28 4 16 0;
+#X connect 28 5 17 0;
+#X connect 28 6 18 0;
+#X connect 28 8 15 0;
+#X connect 29 0 3 0;

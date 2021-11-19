@@ -1,0 +1,5 @@
+ev 9;
+toGEMcpu /tile/12/time -10000 20000;
+toGEMcpu /tile/16/time 0 10000;
+toGEMcpu /tile/16/alpha 1 200;
+3000 toGEMcpu /tile/list/alpha 0.8 200 800 300 500 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 17 18 19 20 21 22 23 24;

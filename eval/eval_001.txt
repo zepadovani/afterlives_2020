@@ -1,0 +1,3 @@
+ev 1 begin: prepare to play.. concentrate.. don't begin;
+toGEMcpu /tile/12/alpha 1 1000;
+200 toGEMcpu /tile/12/scale 3.03 1000;

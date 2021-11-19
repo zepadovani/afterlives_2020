@@ -1,0 +1,18 @@
+ev ev -1 reset everything to start patch again;
+reloadevents bang;
+pd dsp 0;
+fluteinswitch 0;
+flin 0 10;
+pvocs 0 reset;
+pvocs 1 reset;
+pvocs 2 reset;
+pvocs 3 reset;
+pvocs 4 reset;
+pvocs 5 reset;
+pvocs 6 reset;
+pvocs 7 reset;
+bufgrain 0 reset;
+toGEMcpu /timer stop;
+100 toGEMcpu /tile/all/freeze release 0 1000;
+100 toGEMcpu /tile/all/alpha 1 200;
+100 toGEMcpu /tile/all/time 0 1000;
